@@ -1,12 +1,21 @@
 # ElvUIEnhancedAnchors
 
-This **AddOn** is not affiliated nor developed by ElvUI, it merely acts an improvement on their anchoring system.
+A lightweight extension for **ElvUI** that improves how mover anchoring behaves.
+
+This AddOn is not affiliated with or developed by ElvUI.
 
 ## Important Notice
-Once **enabled**, anchoring information is written directly to `E.db.movers`, which means this will persist via exports/imports. Unfortunately, this is the only way this can be handled at this point.
-<br>
-If you want this to be changed, **disabling** or **uninstalling** ElvUIEnhancedAnchors and moving the desired movers via the **ElvUI** will update these values and overwrite any anchoring applied by ElvUIEnhancedAnchors.
 
-## How This Works
-- **Set** Mover Position on Events.
-- **Hook** into existing ElvUI functions to update movers when necessary.
+When enabled, anchoring data is written directly to `E.db.movers`. This means all changes will persist through profile exports and imports.
+
+To revert:
+
+* Disable or uninstall **ElvUIEnhancedAnchors**.
+* Reposition movers using **ElvUI**.
+
+**ElvUI** will overwrite any anchors applied by this AddOn.
+
+## How It Works
+
+* Applies mover positions automatically based on events.
+* Hooks into **ElvUI** `ToggleMovers` function to update movers when required.
