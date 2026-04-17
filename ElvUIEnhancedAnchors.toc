@@ -8,6 +8,12 @@
 ## IconAtlas: BonusChest-Lock
 ## RequiredDeps: ElvUI
 
+Libs/Ace3/AceAddon-3.0/AceAddon-3.0.xml
+Libs/Ace3/AceConfig-3.0/AceConfig-3.0.xml
+Libs/Ace3/AceDB-3.0/AceDB-3.0.xml
+Libs/Ace3/AceDBOptions-3.0/AceDBOptions-3.0.xml
+Libs/LibAceConfigHelper/LibsAceConfigHelper.lua
+
 Constants.lua
 Config.lua
 Core.lua
