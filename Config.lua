@@ -3,7 +3,7 @@ local ACH = Private.ACH
 local ACR = Private.E.Libs.AceConfigRegistry
 
 local function BuildFrameLayoutSection(FrameDB, MoverName, GroupName, TabOrder)
-    local Section = ACH:Group(GroupName, nil, TabOrder, "tab")
+    local Section = ACH:Group(GroupName, nil, TabOrder, nil)
     local function IsDisabled() return not FrameDB.Enabled end
 
     local function UpdateLayout()
@@ -25,7 +25,7 @@ local function BuildFrameLayoutSection(FrameDB, MoverName, GroupName, TabOrder)
 end
 
 function Private:SetupConfig()
-	Private.Config = ACH:Group(format("%s", Private.ADDON_NAME), nil, 20, "tab")
+	Private.Config = ACH:Group(format("%s", Private.ADDON_NAME), nil, 20, "tree")
 
     Private.Config.args.Player = BuildFrameLayoutSection(Private.DB.global.Player, "ElvUF_PlayerMover", "Player Frame", 1)
     Private.Config.args.PlayerCastBar = BuildFrameLayoutSection(Private.DB.global.PlayerCastBar, "ElvUF_PlayerCastbarMover", "Player Cast Bar", 2)

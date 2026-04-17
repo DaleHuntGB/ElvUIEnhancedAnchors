@@ -2,46 +2,7 @@ local Private = select(2, ...)
 local AddOn = LibStub("AceAddon-3.0"):NewAddon("ElvUIAnchors")
 
 function AddOn:OnInitialize()
-    Private.DB = LibStub("AceDB-3.0"):New("ElvUIAnchorsDB", {
-        global = {
-            Player = {
-                Enabled = false,
-                Layout = {"RIGHT", "EssentialCooldownViewer", "LEFT", -10, 0}
-            },
-            PlayerCastBar = {
-                Enabled = false,
-                Layout = {"CENTER", "ElvUIParent", "CENTER", 0, 0}
-            },
-            Target = {
-                Enabled = false,
-                Layout = {"LEFT", "EssentialCooldownViewer", "RIGHT", 10, 0}
-            },
-            TargetCastBar = {
-                Enabled = false,
-                Layout = {"TOP", "ElvUF_Target", "BOTTOM", 0, -1}
-            },
-            TargetTarget = {
-                Enabled = false,
-                Layout = {"CENTER", "ElvUIParent", "CENTER", 0, 0}
-            },
-            Focus = {
-                Enabled = false,
-                Layout = {"CENTER", "ElvUIParent", "CENTER", 0, 0}
-            },
-            FocusCastBar = {
-                Enabled = false,
-                Layout = {"CENTER", "ElvUIParent", "CENTER", 0, 0}
-            },
-            FocusTarget = {
-                Enabled = false,
-                Layout = {"CENTER", "ElvUIParent", "CENTER", 0, 0}
-            },
-            Pet = {
-                Enabled = false,
-                Layout = {"CENTER", "ElvUIParent", "CENTER", 0, 0}
-            }
-        }
-    })
+    Private.DB = LibStub("AceDB-3.0"):New("ElvUIAnchorsDB", Private:GetDefaults(), true)
 end
 
 function AddOn:OnEnable()
