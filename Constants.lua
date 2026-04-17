@@ -89,7 +89,12 @@ function Private:UpdateMovers(isEnabled, moverName, moverLayout)
     Private.E:LoadMovers()
 end
 
+local function RestrictionsAreActive()
+    return C_RestrictedActions.IsAddOnRestrictionActive(0) == true or C_RestrictedActions.IsAddOnRestrictionActive(1) == true or C_RestrictedActions.IsAddOnRestrictionActive(2) == true
+end
+
 function Private:SetAllMovers()
+    if InCombatLockdown() or RestrictionsAreActive() then return end
     Private:SetMovers(Private.DB.global.Player.Enabled, "ElvUF_PlayerMover", table.concat(Private.DB.global.Player.Layout, ","))
     Private:SetMovers(Private.DB.global.PlayerCastBar.Enabled, "ElvUF_PlayerCastbarMover", table.concat(Private.DB.global.PlayerCastBar.Layout, ","))
     Private:SetMovers(Private.DB.global.Target.Enabled, "ElvUF_TargetMover", table.concat(Private.DB.global.Target.Layout, ","))
