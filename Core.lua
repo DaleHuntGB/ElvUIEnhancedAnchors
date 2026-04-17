@@ -17,7 +17,7 @@ function AddOn:OnInitialize()
                 Layout = {"LEFT", "EssentialCooldownViewer", "RIGHT", 10, 0}
             },
             TargetCastBar = {
-                Enabled = true,
+                Enabled = false,
                 Layout = {"TOP", "ElvUF_Target", "BOTTOM", 0, -1}
             },
             TargetTarget = {
