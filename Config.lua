@@ -16,8 +16,8 @@ local function BuildFrameLayoutSection(FrameDB, MoverName, GroupName, TabOrder)
     Section.args.LayoutHeader = ACH:Header("Anchoring", 2)
 
     Section.args.AnchorFrom = ACH:Select("Anchor From", nil, 3, Private.ANCHOR_POINTS, nil, "full", function() return FrameDB.Layout[1] end, function(_, value) FrameDB.Layout[1] = value UpdateLayout() end, IsDisabled)
-    Section.args.Anchors = ACH:Select("Anchors", nil, 4, Private.ANCHORS, nil, "full", function() return FrameDB.Layout[2] end, function(_, value) FrameDB.Layout[2] = value if ACR then ACR:NotifyChange("ElvUI") end UpdateLayout() end, IsDisabled )
-    Section.args.Anchors.sorting = function() return Private.ORDERED_ANCHORS end
+    Section.args.Anchors = ACH:Select("Anchors", nil, 4, Private.ANCHORS[MoverName], nil, "full", function() return FrameDB.Layout[2] end, function(_, value) FrameDB.Layout[2] = value if ACR then ACR:NotifyChange("ElvUI") end UpdateLayout() end, IsDisabled )
+    Section.args.Anchors.sorting = function() return Private.ORDERED_ANCHORS[MoverName] end
     Section.args.AnchorParent = ACH:Input("Anchor Parent", nil, 5, nil, "full", function() return FrameDB.Layout[2] end, function(_, value) FrameDB.Layout[2] = value UpdateLayout() end, IsDisabled)
     Section.args.AnchorTo = ACH:Select("Anchor To", nil, 6, Private.ANCHOR_POINTS, nil, "full", function() return FrameDB.Layout[3] end, function(_, value) FrameDB.Layout[3] = value UpdateLayout() end, IsDisabled)
     Section.args.XOffset = ACH:Range("X Offset", nil, 7, { min = -3000, max = 3000, step = 0.1 }, "full", function() return FrameDB.Layout[4] end, function(_, value) FrameDB.Layout[4] = value UpdateLayout() end, IsDisabled)

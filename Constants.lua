@@ -28,7 +28,7 @@ Private.MOVERS = {
     ["ElvUF_PetMover"] = "Pet"
 }
 
-Private.ANCHORS = {
+local SUPPORTED_ANCHORS = {
     ["EssentialCooldownViewer"] = "|TInterface\\AddOns\\ElvUIEnhancedAnchors\\Media\\Blizzard_Logo.png:16:16|t |cFF009AE4Essential|r Cooldown Viewer",
     ["UtilityCooldownViewer"] = "|TInterface\\AddOns\\ElvUIEnhancedAnchors\\Media\\Blizzard_Logo.png:16:16|t |cFF009AE4Utility|r Cooldown Viewer",
     ["BuffIconCooldownViewer"] = "|TInterface\\AddOns\\ElvUIEnhancedAnchors\\Media\\Blizzard_Logo.png:16:16|t |cFF009AE4Buff Icon|r Cooldown Viewer",
@@ -41,18 +41,212 @@ Private.ANCHORS = {
     ["ElvUF_Pet"] = "|TInterface\\AddOns\\ElvUI\\Game\\Shared\\Media\\Textures\\LogoAddon:16:16|t |cff1784d1ElvUI|r Pet",
 }
 
+Private.ANCHORS = {
+    ["ElvUF_PlayerMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Target"] = SUPPORTED_ANCHORS["ElvUF_Target"],
+        ["ElvUF_TargetTarget"] = SUPPORTED_ANCHORS["ElvUF_TargetTarget"],
+        ["ElvUF_Focus"] = SUPPORTED_ANCHORS["ElvUF_Focus"],
+        ["ElvUF_FocusTarget"] = SUPPORTED_ANCHORS["ElvUF_FocusTarget"],
+        ["ElvUF_Pet"] = SUPPORTED_ANCHORS["ElvUF_Pet"]
+    },
+    ["ElvUF_PlayerCastbarMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Player"] = SUPPORTED_ANCHORS["ElvUF_Player"],
+        ["ElvUF_Target"] = SUPPORTED_ANCHORS["ElvUF_Target"],
+        ["ElvUF_TargetTarget"] = SUPPORTED_ANCHORS["ElvUF_TargetTarget"],
+        ["ElvUF_Focus"] = SUPPORTED_ANCHORS["ElvUF_Focus"],
+        ["ElvUF_FocusTarget"] = SUPPORTED_ANCHORS["ElvUF_FocusTarget"],
+        ["ElvUF_Pet"] = SUPPORTED_ANCHORS["ElvUF_Pet"]
+    },
+    ["ElvUF_TargetMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Player"] = SUPPORTED_ANCHORS["ElvUF_Player"],
+        ["ElvUF_TargetTarget"] = SUPPORTED_ANCHORS["ElvUF_TargetTarget"],
+        ["ElvUF_Focus"] = SUPPORTED_ANCHORS["ElvUF_Focus"],
+        ["ElvUF_FocusTarget"] = SUPPORTED_ANCHORS["ElvUF_FocusTarget"],
+        ["ElvUF_Pet"] = SUPPORTED_ANCHORS["ElvUF_Pet"]
+    },
+    ["ElvUF_TargetCastbarMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Player"] = SUPPORTED_ANCHORS["ElvUF_Player"],
+        ["ElvUF_Target"] = SUPPORTED_ANCHORS["ElvUF_Target"],
+        ["ElvUF_TargetTarget"] = SUPPORTED_ANCHORS["ElvUF_TargetTarget"],
+        ["ElvUF_Focus"] = SUPPORTED_ANCHORS["ElvUF_Focus"],
+        ["ElvUF_FocusTarget"] = SUPPORTED_ANCHORS["ElvUF_FocusTarget"],
+        ["ElvUF_Pet"] = SUPPORTED_ANCHORS["ElvUF_Pet"]
+    },
+    ["ElvUF_TargetTargetMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Player"] = SUPPORTED_ANCHORS["ElvUF_Player"],
+        ["ElvUF_Target"] = SUPPORTED_ANCHORS["ElvUF_Target"],
+        ["ElvUF_Focus"] = SUPPORTED_ANCHORS["ElvUF_Focus"],
+        ["ElvUF_FocusTarget"] = SUPPORTED_ANCHORS["ElvUF_FocusTarget"],
+        ["ElvUF_Pet"] = SUPPORTED_ANCHORS["ElvUF_Pet"]
+    },
+    ["ElvUF_FocusMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Player"] = SUPPORTED_ANCHORS["ElvUF_Player"],
+        ["ElvUF_Target"] = SUPPORTED_ANCHORS["ElvUF_Target"],
+        ["ElvUF_TargetTarget"] = SUPPORTED_ANCHORS["ElvUF_TargetTarget"],
+        ["ElvUF_FocusTarget"] = SUPPORTED_ANCHORS["ElvUF_FocusTarget"],
+        ["ElvUF_Pet"] = SUPPORTED_ANCHORS["ElvUF_Pet"]
+    },
+    ["ElvUF_FocusCastbarMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Player"] = SUPPORTED_ANCHORS["ElvUF_Player"],
+        ["ElvUF_Target"] = SUPPORTED_ANCHORS["ElvUF_Target"],
+        ["ElvUF_TargetTarget"] = SUPPORTED_ANCHORS["ElvUF_TargetTarget"],
+        ["ElvUF_FocusTarget"] = SUPPORTED_ANCHORS["ElvUF_FocusTarget"],
+        ["ElvUF_Pet"] = SUPPORTED_ANCHORS["ElvUF_Pet"]
+    },
+    ["ElvUF_FocusTargetMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Player"] = SUPPORTED_ANCHORS["ElvUF_Player"],
+        ["ElvUF_Target"] = SUPPORTED_ANCHORS["ElvUF_Target"],
+        ["ElvUF_TargetTarget"] = SUPPORTED_ANCHORS["ElvUF_TargetTarget"],
+        ["ElvUF_Focus"] = SUPPORTED_ANCHORS["ElvUF_Focus"],
+        ["ElvUF_Pet"] = SUPPORTED_ANCHORS["ElvUF_Pet"]
+    },
+    ["ElvUF_PetMover"] = {
+        ["EssentialCooldownViewer"] = SUPPORTED_ANCHORS["EssentialCooldownViewer"],
+        ["UtilityCooldownViewer"] = SUPPORTED_ANCHORS["UtilityCooldownViewer"],
+        ["BuffIconCooldownViewer"] = SUPPORTED_ANCHORS["BuffIconCooldownViewer"],
+        ["ElvUIParent"] = SUPPORTED_ANCHORS["ElvUIParent"],
+        ["ElvUF_Player"] = SUPPORTED_ANCHORS["ElvUF_Player"],
+        ["ElvUF_Target"] = SUPPORTED_ANCHORS["ElvUF_Target"],
+        ["ElvUF_TargetTarget"] = SUPPORTED_ANCHORS["ElvUF_TargetTarget"],
+        ["ElvUF_Focus"] = SUPPORTED_ANCHORS["ElvUF_Focus"],
+        ["ElvUF_FocusTarget"] = SUPPORTED_ANCHORS["ElvUF_FocusTarget"]
+    }
+}
+
 Private.ORDERED_ANCHORS = {
-    "EssentialCooldownViewer",
-    "UtilityCooldownViewer",
-    "BuffIconCooldownViewer",
-    "ElvUIParent",
-    "ElvUF_Player",
-    "ElvUF_Target",
-    "ElvUF_TargetTarget",
-    "ElvUF_Focus",
-    "ElvUF_FocusTarget",
-    "ElvUF_Pet",
-    "Custom"
+    ["ElvUF_PlayerMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Target",
+        "ElvUF_TargetTarget",
+        "ElvUF_Focus",
+        "ElvUF_FocusTarget",
+        "ElvUF_Pet",
+    },
+    ["ElvUF_PlayerCastbarMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Player",
+        "ElvUF_Target",
+        "ElvUF_TargetTarget",
+        "ElvUF_Focus",
+        "ElvUF_FocusTarget",
+        "ElvUF_Pet",
+    },
+    ["ElvUF_TargetMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Player",
+        "ElvUF_TargetTarget",
+        "ElvUF_Focus",
+        "ElvUF_FocusTarget",
+        "ElvUF_Pet",
+    },
+    ["ElvUF_TargetCastbarMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Player",
+        "ElvUF_Target",
+        "ElvUF_TargetTarget",
+        "ElvUF_Focus",
+        "ElvUF_FocusTarget",
+        "ElvUF_Pet",
+    },
+    ["ElvUF_TargetTargetMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Player",
+        "ElvUF_Target",
+        "ElvUF_Focus",
+        "ElvUF_FocusTarget",
+        "ElvUF_Pet",
+    },
+    ["ElvUF_FocusMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Player",
+        "ElvUF_Target",
+        "ElvUF_TargetTarget",
+        "ElvUF_FocusTarget",
+        "ElvUF_Pet",
+    },
+    ["ElvUF_FocusCastbarMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Player",
+        "ElvUF_Target",
+        "ElvUF_TargetTarget",
+        "ElvUF_FocusTarget",
+        "ElvUF_Pet",
+    },
+    ["ElvUF_FocusTargetMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Player",
+        "ElvUF_Target",
+        "ElvUF_TargetTarget",
+        "ElvUF_Focus",
+        "ElvUF_Pet",
+    },
+    ["ElvUF_PetMover"] = {
+        "EssentialCooldownViewer",
+        "UtilityCooldownViewer",
+        "BuffIconCooldownViewer",
+        "ElvUIParent",
+        "ElvUF_Player",
+        "ElvUF_Target",
+        "ElvUF_TargetTarget",
+        "ElvUF_Focus",
+        "ElvUF_FocusTarget"
+    }
 }
 
 local Defaults = {
