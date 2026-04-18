@@ -332,3 +332,22 @@ end
 function Private:PrettyPrint(MSG)
     print(Private.ADDON_NAME .. ": " .. MSG)
 end
+
+function Private:IsElementEnabled(element, isCastBar)
+    local ElementDB = Private.E.db.unitframe.units
+    local CastBarDB = ElementDB[element] and ElementDB[element].castbar
+
+    if isCastBar then
+        if CastBarDB and CastBarDB.enable then
+            return true
+        else
+            return false
+        end
+    else
+        if ElementDB[element] and ElementDB[element].enable then
+            return true
+        else
+            return false
+        end
+    end
+end
