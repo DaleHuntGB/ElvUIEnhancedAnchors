@@ -7,7 +7,7 @@ local function BuildFrameLayoutSection(FrameDB, MoverName, GroupName, TabOrder)
     local function IsDisabled() return not FrameDB.Enabled end
 
     local function UpdateLayout()
-        Private:UpdateMovers(FrameDB.Enabled, MoverName, table.concat(FrameDB.Layout, ","))
+        Private:UpdateMover(FrameDB.Enabled, MoverName, table.concat(FrameDB.Layout, ","))
         if ACR then ACR:NotifyChange("ElvUI") end
     end
 
