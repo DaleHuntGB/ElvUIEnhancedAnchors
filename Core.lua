@@ -8,18 +8,8 @@ end
 function AddOn:OnEnable()
     Private:SetupConfig()
 
-    if C_AddOns.IsAddOnLoaded("ElvUI_Anchors") then
-        Private.E.PopupDialogs["ELVUI_ANCHORS_CONFLICT"] = {
-            text = "You have two addons that provide the same functionality. Pick one to disable",
-            button1 = "ElvUI Enhanced Anchors",
-            button2 = "ElvUI Anchors",
-            OnAccept = function() C_AddOns.DisableAddOn("ElvUIEnhancedAnchors") C_UI.ReloadUI() end,
-            OnCancel = function() C_AddOns.DisableAddOn("ElvUI_Anchors") C_UI.ReloadUI() end,
-            timeout = 0,
-            whileDead = true,
-            hideOnEscape = false,
-        }
-        Private.E:StaticPopup_Show("ELVUI_ANCHORS_CONFLICT")
+    if C_AddOns.IsAddOnLoaded("ElvUI_Anchor") then
+        Private.E:StaticPopup_Show("ANCHOR_CONFLICT")
         return
     end
 
