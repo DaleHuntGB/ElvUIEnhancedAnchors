@@ -351,3 +351,14 @@ function Private:IsElementEnabled(element, isCastBar)
         end
     end
 end
+
+Private.E.PopupDialogs.ANCHOR_CONFLICT = {
+    text = "You have both |cff1784d1ElvUI|r|cFF8080FFEnhanced|r|cFFFFFFFFAnchors|r and |cff1784d1ElvUI|r Anchor.\n\nSelect which one you would like to keep |cFF40FF40enabled|r.",
+    button1 = "|cff1784d1ElvUI|r|cFF8080FFEnhanced|r|cFFFFFFFFAnchors|r",
+    button2 = "|cff1784d1ElvUI|r Anchor",
+    OnAccept = function() C_AddOns.DisableAddOn("ElvUI_Anchors") C_UI.ReloadUI() end,
+    OnCancel = function() C_AddOns.DisableAddOn("ElvUIEnhancedAnchors") C_UI.ReloadUI() end,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = false,
+}
